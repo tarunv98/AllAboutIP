@@ -3,7 +3,7 @@ const APIS = {
     "enquireIP": "http://127.0.0.1:9999/apis/enquireIP"
 }
 
-function APIReq (method = 'GET', api, body = {}) {
+/*function APIReq (method = 'GET', api, body = {}) {
 
     fetch(`${APIS["getIP"]}/${body.data.toString()}`).then(resp => {
         return JSON.parse(resp.data)
@@ -11,11 +11,11 @@ function APIReq (method = 'GET', api, body = {}) {
         return retObj
     })
     
-}
+}*/
 
 function updateIP() {
     var ip = "100.100.100.100"
     // var ip = APIReq('GET', 'getIP', {})
-    document.getElementById('IP_PLACEHOLDER').innerHTML = `${ip}`;
-    document.getElementById('ip_box').style.display = 'block';
+    document.getElementById('IP_PLACEHOLDER').placeholder = `${ip}`;
+    //document.getElementById('ip_box').style.display = 'block';
 }
