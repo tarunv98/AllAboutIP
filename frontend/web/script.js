@@ -22,7 +22,4 @@ function updateIP() {
     //document.getElementById('ip_box').style.display = 'block';
 }
 
-function enquireIP()
-{
-    
-}
+
