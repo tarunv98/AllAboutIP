@@ -16,6 +16,13 @@ function APIReq (method = 'GET', api, body = {}) {
 function updateIP() {
     var ip = "100.100.100.100"
     // var ip = APIReq('GET', 'getIP', {})
-    document.getElementById('IP_PLACEHOLDER').placeholder = `${ip}`;
+    x = document.getElementById('IP_PLACEHOLDER');
+    x.setAttribute("type","text");
+    x.setAttribute("value",ip);
     //document.getElementById('ip_box').style.display = 'block';
+}
+
+function enquireIP()
+{
+    
 }
