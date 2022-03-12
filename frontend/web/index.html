@@ -10,6 +10,7 @@
 <body>
     <div class="ip">
         <input type = "button" onclick = "updateIP()" value = "Get IP">  
+        <input type="text" id="IP_PLACEHOLDER" placeholder="IP Address">
         <div id="ip_box">
             <b>YOUR IP IS: </b><span id="IP_PLACEHOLDER">{{}}</span>
         </div>
@@ -51,25 +52,24 @@
                     <form >
                         <!--<div class="head">Try your <span class="text-primary">Free</span> trial today.</div>-->
                         <div class="body">
-						<span style="padding-left:30%;-ms-transform: translateY(-50%);transform: translateY(-50%);"><button class="btn btn-outline-light btn-flat" onclick="updateIP()">Get IP Address</button></span>
+						<span style="padding-left:30%;"><button class="btn btn-outline-light btn-flat" type="button"  onclick="updateIP()">Get IP Address</button></span>
 						<br><br><p style="text-align:center;font-size:30px">OR</p>
                             <div class="form-group">
-                                <pre style="padding-left:10%"><input type="text" class="btn btn-outline-light btn-flat" placeholder="Enter IP Address"><button class="btn btn-outline-light btn-flat" onclick="enquireIP()">Search</button></pre>
+                                <pre style="padding-left:10%"><input type="text" class="btn btn-outline-light btn-flat" id="IP_PLACEHOLDER" placeholder="Enter IP Address"><button class="btn btn-outline-light btn-flat">Search</button></pre>
                             </div>
                         </div>
                         
                     </form> 
+                    <!--<a onclick="window.open(document.URL, '_blank', 'location=yes,height=570,width=520,scrollbars=yes,status=yes');">
+                        Share Page
+                      </a>-->
                 </div>
             </div>  
         </div>
     </header>
     <section class="section">
         <div class="container">
-            
-                
-                <div class="col-lg-4 d-none d-lg-block align-self-center">
-                    <img src="assets/imgs/eiffel-tower.svg" alt="" class="w-100 tower">
-                </div>
+             
             </div>                  
         </div>                      
     </section>
