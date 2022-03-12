@@ -22,4 +22,15 @@ function updateIP() {
     //document.getElementById('ip_box').style.display = 'block';
 }
 
+function ValidateIP(ip) {
+    let validate = `http://127.0.0.1:9999/apis/ValidateIP/`
+
+    ip = ip.toString().replace(':', '')
+    ip = ip.toString().replace('.', '')
+
+    validate = validate + '/' + ip
+
+    window.open(validate, '_blank', 'location=yes,height=570,width=520,scrollbars=yes,status=yes');
+}
+
 

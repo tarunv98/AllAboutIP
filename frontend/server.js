@@ -12,6 +12,18 @@ const handleRequest = (req, res, path) => {
     let full_path
     let isAPI = false;
 
+    // Call this file with IP extension /ValidateIP/<IPExt>
+    if (path.split('/')[1] == 'ValidateIP') {
+        full_path =  `${CONSTANTS.WEBDIR}/IPValidator.html`
+        let ip = path.split('/')[2]
+        let newIP = req.socket.remoteAddress
+        newIP = newIP.toString().replace(':', '')
+        newIP = newIP.toString().replace('.', '')
+
+        if(ip.toString() == newIP.toString()) full_path =  `${CONSTANTS.WEBDIR}/IPValidatorOK.html`
+        else full_path =  `${CONSTANTS.WEBDIR}/IPValidatorFAIL.html`
+    }
+    
     (path == '/') ? full_path = CONSTANTS.OK_WEBPAGE : full_path =  `${CONSTANTS.WEBDIR}/${path}`
 
     fs.readFile(full_path, function (error, pgResp) {
