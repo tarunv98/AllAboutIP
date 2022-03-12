@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!--<!DOCTYPE html>
 
 <head>
     <link rel="stylesheet" href="./style.css">
@@ -14,4 +14,66 @@
             <b>YOUR IP IS: </b><span id="IP_PLACEHOLDER">{{}}</span>
         </div>
     </div>
+</body>-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Start your development with Rubic landing page.">
+    <meta name="author" content="Devcrud">
+    <link rel="stylesheet" href="./style.css">
+    <script src="./script.js"></script>
+    <title>All About IP</title>
+</head>
+<body data-spy="scroll" data-target=".navbar" data-offset="40" id="home">
+
+    <nav id="scrollspy" class="navbar page-navbar navbar-dark navbar-expand-md fixed-top" data-spy="affix" data-offset-top="20">
+        <div class="container">
+            <a class="navbar-brand" href="#"><span class="text-light">All About </span><strong class="text-primary">IP</strong></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+    </nav>
+    <header class="header d-flex justify-content-center">
+        <div class="container">
+            <div class="row h-100 align-items-center">
+                <div class="col-md-7">
+                    <div class="header-content">
+                        <h3 class="header-title"><span class="text-light">All About </span><strong class="text-primary">IP</strong></h3>
+                        <h4 class="header-subtitle">Detection & Information of IP Address</h4>
+                        <p>Detecting IP Address for whether it's an authenticated IP Address. If not, detecting and presenting the original IP Address details.</p>
+                        <!--<button class="btn btn-outline-light btn-flat">Download</button>-->
+                    </div>  
+                </div>
+                <div class="col-md-5 d-none d-md-block">
+                    <form >
+                        <!--<div class="head">Try your <span class="text-primary">Free</span> trial today.</div>-->
+                        <div class="body">
+						<span style="padding-left:30%;-ms-transform: translateY(-50%);transform: translateY(-50%);"><button class="btn btn-outline-light btn-flat" onclick="updateIP()">Get IP Address</button></span>
+						<br><br><p style="text-align:center;font-size:30px">OR</p>
+                            <div class="form-group">
+                                <pre style="padding-left:10%"><input type="text" class="btn btn-outline-light btn-flat" placeholder="Enter IP Address"><button class="btn btn-outline-light btn-flat" onclick="enquireIP()">Search</button></pre>
+                            </div>
+                        </div>
+                        
+                    </form> 
+                </div>
+            </div>  
+        </div>
+    </header>
+    <section class="section">
+        <div class="container">
+            
+                
+                <div class="col-lg-4 d-none d-lg-block align-self-center">
+                    <img src="assets/imgs/eiffel-tower.svg" alt="" class="w-100 tower">
+                </div>
+            </div>                  
+        </div>                      
+    </section>
+    
+
 </body>
+</html>
