@@ -1,0 +1,8 @@
+.ip {
+    color: white;
+    background-color: blue;
+}
+
+#ip_box {
+    display: none;
+}
