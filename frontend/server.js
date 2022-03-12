@@ -13,18 +13,34 @@ const handleRequest = (req, res, path) => {
     let isAPI = false;
 
     // Call this file with IP extension /ValidateIP/<IPExt>
-    if (path.split('/')[1] == 'ValidateIP') {
-        full_path =  `${CONSTANTS.WEBDIR}/IPValidator.html`
+    if (path.split('/')[1] && path.split('/')[1] == 'ValidateIP') {
+        full_path = `${CONSTANTS.WEBDIR}/IPValidator.html`
         let ip = path.split('/')[2]
         let newIP = req.socket.remoteAddress
         newIP = newIP.toString().replace(':', '')
         newIP = newIP.toString().replace('.', '')
+        let otherIP = ''
 
-        if(ip.toString() == newIP.toString()) full_path =  `${CONSTANTS.WEBDIR}/IPValidatorOK.html`
-        else full_path =  `${CONSTANTS.WEBDIR}/IPValidatorFAIL.html`
-    }
-    
-    (path == '/') ? full_path = CONSTANTS.OK_WEBPAGE : full_path =  `${CONSTANTS.WEBDIR}/${path}`
+        if (ip.toString() == newIP.toString()) full_path = `${CONSTANTS.WEBDIR}/IPValidatorOK.html`
+        else {
+            LOG.log(`PROXY DETECTED ${ip} --- ${newIP}`)
+            full_path = `${CONSTANTS.WEBDIR}/IPValidatorFAIL.html`
+        }
+
+        if (req.getHeader('X-Forwarded-For')) otherIP = req.getHeader('X-Forwarded-For')
+        else if (req.getHeader('X-Client-IP')) otherIP = req.getHeader('X-Client-IP')
+
+        otherIP = otherIP.toString().replace(':', '')
+        otherIP = otherIP.toString().replace('.', '')
+
+        if (ip.toString() == newIP.toString()) full_path = `${CONSTANTS.WEBDIR}/IPValidatorOK.html`
+        else {
+            LOG.log(`PROXY DETECTED ${ip} --- ${otherIP}`)
+            full_path = `${CONSTANTS.WEBDIR}/IPValidatorFAIL.html`
+        }
+
+    } else if (path == '/') full_path = CONSTANTS.OK_WEBPAGE
+    else full_path = `${CONSTANTS.WEBDIR}/${path}`
 
     fs.readFile(full_path, function (error, pgResp) {
         if (error) {
@@ -32,7 +48,7 @@ const handleRequest = (req, res, path) => {
             res.writeHead(404)
             res.write('Contents you are looking are Not Found')
         } else {
-            let headers = (path =='/') ? CONSTANTS.headers[`html`] : CONSTANTS.headers[`${ext}`]
+            let headers = (path == '/') ? CONSTANTS.headers[`html`] : CONSTANTS.headers[`${ext}`]
             LOG.log(JSON.stringify(headers))
             res.setHeader("Content-Type", mime.getType(path));
             res.writeHead(200, 'OK', headers)
